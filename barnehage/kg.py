@@ -67,6 +67,23 @@ def commit():
 def adminsoknad():
     return render_template('adminsoknad.html', data=soknader_lokalt)
 
+print("Script started")
+import pandas as pd
+
+# Testblokk, hadde problemer med å laste inn nettsiden og måtte se om at det var excel filen som ikke funket
+
+try:
+    kgdata = pd.ExcelFile(r'C:\Users\47939\Github\Obligatorisk5\barnehage\kgdata.xlsx')
+    print("Excel file har lastet inn riktig")
+except FileNotFoundError:
+    print("Filen er ikke funnet")
+except Exception as e:
+    print(f"Feilmelding: {e}")
+
+
+# For å runne flask :thumbs_up:
+if __name__ == '__main__':
+    app.run(debug=True)  # Starts the Flask server in debug mode
 
 """
 Referanser

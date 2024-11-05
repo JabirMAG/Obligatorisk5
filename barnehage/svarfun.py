@@ -3,7 +3,7 @@ import random
 
 def finn_ledig_barnehage(ønsket_barnehage=None):
     # Les Excel-filen for tilgjengelige plasser
-    kgdata = pd.ExcelFile('kgdata.xlsx')
+    kgdata = pd.ExcelFile(r'C:\Users\47939\Github\Obligatorisk5\barnehage\kgdata.xlsx')
     barnehage_df = pd.read_excel(kgdata, 'barnehage')  # Tilpass til riktig ark
 
     # Filtrer etter ønsket barnehage om angitt

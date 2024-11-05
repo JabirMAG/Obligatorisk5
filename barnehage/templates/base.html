@@ -1,101 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} Krs Kommune</title>
-    <style>
-    
-        body {
-          margin-left: 20px;
-          margin-right: 20px;
-        }
-        a:link { color: #0000EE; }
-        a:visited { color: #551A8B; }
-        a:link:active, :visited:active { color: #FF0000; }
-
-        .title {
-            margin: 5px;
-            width: 100%;
-        }
-        /*
-        .content {
-            margin: 5px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        */
-
-        button,
-        input,
-        select,
-        textarea {
-            font-family: inherit;
-            font-size: 100%;
-        }
-
-        input,
-        textarea,
-        select,
-        button {
-            width: 150px;
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        fieldset {
-            position: relative;
-            padding: 2em;
-        }
-
-        legend {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-
-
-        .title a {
-            color: #0000EE;
-            text-decoration: none;
-        }
-
-        nav a {
-            color: #0000EE;
-            font-size: 1em;
-            margin-left: 30px;
-            margin-right: 20px;
-            
-        }
-        
-        .center {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width: 50%;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     
-    <nav>
-        <span>MENY:</span>
-        <a href="{{ url_for('index') }}">Hjem</a>
-        <a href="{{ url_for('behandle') }}">Søk</a>
-        <a href="{{ url_for('barnehager') }}">Barnehager</a>
-        <a href="{{ url_for('svar') }}">svar</a>
-
-        <a href="{{ url_for('commit') }}" style="float: right;"> commit</a>
-        <a href="{{ url_for('adminsoknad') }}" style="float: right;"> Søknader</a>
-        <span style="float: right">ADMIN:</span>
-    </nav>
-    <hr>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Kristiansand Kommune Logo">
+                </a>
+            </div>
+            <div class="menu">
+                <span>MENY:</span>
+                <a href="{{ url_for('index') }}">Hjem</a>
+                <a href="{{ url_for('behandle') }}">Søk</a>
+                <a href="{{ url_for('barnehager') }}">Barnehager</a>
+                <a href="{{ url_for('svar') }}">Svar</a>
+            </div>
+            <div class="admin">
+                <span>ADMIN:</span>
+                <a href="{{ url_for('adminsoknad') }}">Søknader</a>
+                <a href="{{ url_for('commit') }}">Commit</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="breadcrumbs">
+        <!-- Eventuelle breadcrumbs kan legges til her -->
+    </div>
+    
     <div class="content">
         {% block content %} {% endblock %}
     </div>
+    
 </body>
 </html>
-

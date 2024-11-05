@@ -1,3 +1,6 @@
+# IKKE RUN DETTE I DET HELE TATT! DU VIL ØDELEGGE ALT
+
+
 # initiate script
 import pandas as pd
 from kgmodel import Barnehage
@@ -57,5 +60,3 @@ def initiate_db(db_name):
     """
 
 initiate_db("kgdata.xlsx")
-
-
