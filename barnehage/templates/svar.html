@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Svar på Søknad</h2>
+
+{% if data['valgt_barnehage'] != "Ingen ledige plasser tilgjengelig" %}
+    <p>Gratulerer! Du har fått plass i: <strong>{{ data['valgt_barnehage'] }}</strong></p>
+{% else %}
+    <p>Beklager, det er ingen ledige plasser for øyeblikket.</p>
+{% endif %}
+
+<table border=1>
+    <p>Detaljer om Søknaden</p>
+    {% for k, v in data.items() %}
+        <tr>
+            <th>{{ k }}</th>
+            <td>{{ v }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
